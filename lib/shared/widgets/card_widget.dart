@@ -1,11 +1,12 @@
 import 'package:boozinfitnessapp/shared/extensions/theams.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants/color_constants.dart';
 import '../constants/fonts/fonst_constants.dart';
 import '../constants/string_constants.dart';
 
 class CustomCard extends StatelessWidget {
-  const CustomCard(
+   CustomCard(
       {required this.title,
       required this.goal,
       required this.iconPath,
@@ -18,15 +19,15 @@ class CustomCard extends StatelessWidget {
   final String goal;
   final String heading;
   final double value;
-  final TextStyle _titleStyle = const TextStyle(
-    fontSize: 10,
+  final TextStyle _titleStyle = TextStyle(
+    fontSize: 10.sp,
     fontWeight: FontWeight.w500,
     fontFamily: AppFont.nunito,
   );
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 122,
+      height: 122.h,
       width: MediaQuery.of(context).size.width,
       child: Card(
         shape: RoundedRectangleBorder(
@@ -48,16 +49,16 @@ class CustomCard extends StatelessWidget {
                         children: [
                           TextSpan(
                             text: '$heading: ',
-                            style: const TextStyle(
-                              fontSize: 16,
+                            style:  TextStyle(
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.w400,
                               fontFamily: AppFont.montserrat,
                             ),
                           ),
                           TextSpan(
                             text: title,
-                            style: const TextStyle(
-                              fontSize: 16,
+                            style:  TextStyle(
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.w600,
                               fontFamily: AppFont.nunito,
                             ),
@@ -65,7 +66,7 @@ class CustomCard extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 16),
+                     SizedBox(height: 16.h),
                     Flexible(
                       child: ClipRRect(
                         borderRadius:
@@ -82,7 +83,7 @@ class CustomCard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 8),
+                     SizedBox(height: 8.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -100,10 +101,10 @@ class CustomCard extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(width: 21),
+               SizedBox(width: 21.w),
               SizedBox(
-                height: 52,
-                width: 52,
+                height: 52.h,
+                width: 52.w,
                 child: Image.asset(iconPath),
               )
             ],

@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../features/home/controller/home_controller.dart';
 import '../constants/string_constants.dart';
 
@@ -16,12 +17,12 @@ class Error extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text(
+           Text(
             StringConstants.error,
             style: TextStyle(
-              fontSize: 20,
+              fontSize: 20.sp,
               fontWeight: FontWeight.bold,
-              color: Colors.red,
+              color: Colors.teal,
             ),
           ),
           TextButton(
