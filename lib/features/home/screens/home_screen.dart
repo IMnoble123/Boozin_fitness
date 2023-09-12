@@ -57,6 +57,7 @@ class HomeScreen extends GetView<HelthController> {
                   goal: '15,000',
                 ),
               ),
+              SizedBox(height: 14.h),
               LoadingShimmer(
                 loading: controller.isLoading.value,
                 child: CustomCard(

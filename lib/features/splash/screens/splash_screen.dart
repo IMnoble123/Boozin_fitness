@@ -56,8 +56,7 @@ class _SplashState extends State<Splash> {
               constraints: BoxConstraints.tight( Size(210.w, 85.h)),
               child: Stack(
                 alignment: Alignment.center,
-                children: <Widget>[
-                  // animate the pin logo on the screen
+                children:[
                   AnimatedAlign(
                     duration: const Duration(milliseconds: 500),
                     alignment: align ? const Alignment(0.615, 0) : Alignment.center,
@@ -65,7 +64,6 @@ class _SplashState extends State<Splash> {
                       imagePath: ImagePathCommon.splashI,
                     ),
                   ),
-                  // animate the boozin logo on the screen
                   if (align)
                     AnimateWithBlink(
                       visible: _visible,
@@ -75,7 +73,6 @@ class _SplashState extends State<Splash> {
               ),
             ),
              SizedBox(height: 14.h),
-            // animate the fitness text on the screen
             AnimateWithBlink(
               visible: _visible,
               child: Text(
