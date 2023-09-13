@@ -1,4 +1,4 @@
-# ChatGPT AI Chatbot App
+# Google Fit App
 
 <img src = "addimg.png">
 <p>

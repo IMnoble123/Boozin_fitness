@@ -29,11 +29,11 @@ class MyApp extends StatelessWidget {
           ),
           themeMode: ThemeMode.system,
           debugShowCheckedModeBanner: false,
-          initialRoute: Splash.route,
+          initialRoute: SplashScreen.route,
           getPages: [
             GetPage(
-              name: Splash.route,
-              page: () => const Splash(),
+              name: SplashScreen.route,
+              page: () => const SplashScreen(),
             ),
             GetPage(
               name: HomeScreen.route,

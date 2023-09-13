@@ -8,16 +8,16 @@ import '../../../shared/animations/animations.dart';
 import '../../../shared/constants/fonts/fonst_constants.dart';
 import '../../../shared/extensions/image_path.dart';
 
-class Splash extends StatefulWidget {
-  const Splash({Key? key}) : super(key: key);
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({Key? key}) : super(key: key);
 
   static const String route = '/';
 
   @override
-  State<Splash> createState() => _SplashState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashState extends State<Splash> {
+class _SplashScreenState extends State<SplashScreen> {
   bool _visible = false;
   bool align = false;
 
@@ -25,11 +25,11 @@ class _SplashState extends State<Splash> {
   void initState() {
     super.initState();
     initSetup().then((_) async {
-      _startAnimation();
+      initAnimation();
     });
   }
 
-  Future<void> _startAnimation() async {
+  Future<void> initAnimation() async {
     setState(() => align = !align);
     await Future.delayed(const Duration(milliseconds: 100));
     setupComplete();
@@ -48,44 +48,55 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ConstrainedBox(
-              constraints: BoxConstraints.tight( Size(210.w, 85.h)),
-              child: Stack(
-                alignment: Alignment.center,
-                children:[
-                  AnimatedAlign(
-                    duration: const Duration(milliseconds: 500),
-                    alignment: align ? const Alignment(0.615, 0) : Alignment.center,
-                    child: const CustomImage(
-                      imagePath: ImagePathCommon.splashI,
-                    ),
+      body: _createBody(),
+    );
+  }
+
+
+
+
+  
+
+  Widget _createBody() {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ConstrainedBox(
+            constraints: BoxConstraints.tight(Size(210.w, 85.h)),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                AnimatedAlign(
+                  duration: const Duration(milliseconds: 500),
+                  alignment:
+                      align ? const Alignment(0.615, 0) : Alignment.center,
+                  child: const CustomImage(
+                    imagePath: ImagePathCommon.splashI,
                   ),
-                  if (align)
-                    AnimateWithBlink(
-                      visible: _visible,
-                      child: CustomImage(imagePath: ImagePath(context).splashBoozin),
-                    ),
-                ],
-              ),
-            ),
-             SizedBox(height: 14.h),
-            AnimateWithBlink(
-              visible: _visible,
-              child: Text(
-                StringConstants.fitness,
-                style: TextStyle(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: AppFont.nunito,
                 ),
+                if (align)
+                  AnimateWithBlink(
+                    visible: _visible,
+                    child:
+                        CustomImage(imagePath: ImagePath(context).splashBoozin),
+                  ),
+              ],
+            ),
+          ),
+          SizedBox(height: 14.h),
+          AnimateWithBlink(
+            visible: _visible,
+            child: Text(
+              StringConstants.fitness,
+              style: TextStyle(
+                fontSize: 20.sp,
+                fontWeight: FontWeight.bold,
+                fontFamily: AppFont.nunito,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
